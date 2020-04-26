@@ -21,6 +21,22 @@
         group: "0"
         mode: 0600
 
+    - name: "ensure /data/backup exists"
+      file:
+        path: /data/backup
+        mode: 0700
+        owner: "root"
+        group: "root"
+        state: directory
+
+    - name: "ensure /data/backup/teamspeak3 exists"
+      file:
+        path: /data/backup/teamspeak3
+        mode: 0700
+        owner: "root"
+        group: "root"
+        state: directory
+
 - hosts: all
   become: true
   vars:

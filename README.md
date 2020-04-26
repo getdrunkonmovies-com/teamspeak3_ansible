@@ -6,7 +6,6 @@ Ansible Playbook(s) to manage a teamspeak3 server instance running under Ubuntu 
 - This (set of) playbooks requires geerlingguy.docker [geerlingguy's work](https://github.com/geerlingguy/ansible-role-docker) - tested with version 2.5.1.
 - The Dockerfile is from [icedream's docker image repository](https://github.com/icedream/docker-ts3server)
 
-
 ## Usage
 
 ### Setup Inventory
@@ -42,8 +41,15 @@ Ansible Playbook(s) to manage a teamspeak3 server instance running under Ubuntu 
     ansible-playbook -i inventories/teamspeak3/hosts.yml base_setup.yml
     ```
 
-### Run the actual cluster setup
+### Run the actual setup
 
 ```bash
 ansible-playbook -i inventories/teamspeak3/hosts.yml teamspeak3_servers.yml
+```
+
+### Backup:
+
+```bash
+cd backups
+bash manual_backup.sh <your-ip> root
 ```
