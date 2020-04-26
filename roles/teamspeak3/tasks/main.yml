@@ -1,0 +1,64 @@
+---
+- name: "ensure /data/ansible exists"
+  file:
+    path: /data/ansible
+    state: directory
+
+- name: "ensure /data/ansible/teamspeak3 exists"
+  file:
+    path: /data/ansible/teamspeak3
+    mode: 0700
+    owner: "9999"
+    group: "9999"
+    state: directory
+
+- name: "ensure /data/ansible/teamspeak3/build exists"
+  file:
+    path: /data/ansible/teamspeak3/build
+    mode: 0700
+    owner: "root"
+    group: "root"
+    state: directory
+
+- name: "copy teamspeak3 Dockerfile to build directory"
+  template:
+    src: "Dockerfile.j2"
+    dest: /data/ansible/teamspeak3/build/Dockerfile
+    mode: 0700
+    owner: "root"
+    group: "root"
+    backup: yes
+
+- name: "Build local.teamspeak3.image:{{ ts3_server_version | default('3.12.1') }} docker image"
+  docker_image:
+    name: local.teamspeak3.image
+    tag: "{{ ts3_server_version | default('3.12.1') }}"
+    build:
+      path: /data/ansible/teamspeak3/build
+      args:
+        TS3SERVER_VERSION: "{{ ts3_server_version | default('3.12.1') }}"
+    source: build
+
+- name: "ensure /data/ansible/teamspeak3/data exists"
+  file:
+    path: /data/ansible/teamspeak3/data
+    mode: 0700
+    owner: "9999"
+    group: "9999"
+    state: directory
+
+- name: Create Teamspeak3 Docker container
+  docker_container:
+    name: "teamspeak3_master"
+    image: "local.teamspeak3.image:{{ ts3_server_version | default('3.12.1') }}"
+    recreate: true
+    ports:
+      - "9987-9999:9987-9999/udp" # voice/virtual server UDP ports
+      - "10011:10011" # query TCP port
+      - "30033:30033" # file transfer TCP port
+    volumes:
+      - "/data/ansible/teamspeak3/data:/data"
+    env:
+      TZ: "Europe/Berlin" # set timezone
+      TS3SERVER_LICENSE: "accept"
+    restart_policy: unless-stopped
