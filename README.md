@@ -3,7 +3,7 @@ Ansible Playbook(s) to manage a teamspeak3 server instance running under Ubuntu 
 
 ## Used Software
 
-- This (set of) playbooks requires geerlingguy.docker [geerlingguy's work](https://github.com/geerlingguy/ansible-role-docker) - tested with version 2.5.1.
+- This (set of) playbooks requires [geerlingguy.docker](https://github.com/geerlingguy/ansible-role-docker) - tested with version 2.5.1.
 - The Dockerfile is from [icedream's docker image repository](https://github.com/icedream/docker-ts3server)
 
 ## Usage
