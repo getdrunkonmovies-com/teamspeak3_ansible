@@ -35,8 +35,14 @@ Ansible Playbook(s) to manage a teamspeak3 server instance running under Ubuntu 
     ```bash
     mkdir -p ~/.ssh/ && ssh-keyscan <ip> >> ~/.ssh/known_hosts
     ```
+    
+2. Copy your ssh key to the server (**if you only have a password**):
 
-2. Run the actual base_setup playbook
+    ```bash
+    ssh-copy-id -i ~/ssh_keys/root_rsa root@<ip>
+    ```
+
+3. Run the actual base_setup playbook
 
     ```bash
     ansible-playbook -i inventories/teamspeak3/hosts.yml base_setup.yml
