@@ -54,6 +54,13 @@ Ansible Playbook(s) to manage a teamspeak3 server instance running under Ubuntu 
 ansible-playbook -i inventories/teamspeak3/hosts.yml teamspeak3_servers.yml
 ```
 
+On a new setup, you can get the privilege key from the docker logs via `docker logs teamspeak3_master`
+
+### Upgrading
+
+1. Globally replace all Teamspeak3 server version strings in this repository with the newest version
+2. Replace the SHA hash of the Teamspeak3 server to the one from https://www.teamspeak.com/de/downloads/#server
+
 ### Backup:
 
 ```bash
