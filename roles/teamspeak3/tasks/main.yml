@@ -56,6 +56,8 @@
       - "9987-9999:9987-9999/udp" # voice/virtual server UDP ports
       - "10011:10011" # query TCP port
       - "30033:30033" # file transfer TCP port
+      - "2010:2010/udp"
+      - "41144:41144"
     volumes:
       - "/data/ansible/teamspeak3/data:/data"
     env:
