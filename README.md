@@ -25,7 +25,7 @@ Ansible Playbook(s) to manage a teamspeak3 server instance running under Ubuntu 
     For each relevant node run:
 
     ```bash
-    mkdir -p ~./ssh/ && ssh-keygen -f ~/.ssh/known_hosts <ip>
+    mkdir -p ~/.ssh/ && ssh-keygen -f ~/.ssh/known_hosts <ip>
     ```
 
 1. put the ssh keys of your machines into your known hosts:
@@ -33,7 +33,7 @@ Ansible Playbook(s) to manage a teamspeak3 server instance running under Ubuntu 
     For each node run:
 
     ```bash
-    mkdir -p ~./ssh/ && ssh-keyscan <ip> >> ~/.ssh/known_hosts
+    mkdir -p ~/.ssh/ && ssh-keyscan <ip> >> ~/.ssh/known_hosts
     ```
 
 2. Run the actual base_setup playbook
