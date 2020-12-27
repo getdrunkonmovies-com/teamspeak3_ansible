@@ -60,6 +60,7 @@ On a new setup, you can get the privilege key from the docker logs via `docker l
 
 1. Globally replace all Teamspeak3 server version strings in this repository with the newest version
 2. Replace the SHA hash of the Teamspeak3 server to the one from https://www.teamspeak.com/de/downloads/#server
+3. Simply run the actual setup again
 
 ### Backup:
 
