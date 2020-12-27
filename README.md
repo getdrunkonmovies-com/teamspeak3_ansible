@@ -20,7 +20,7 @@ Ansible Playbook(s) to manage a teamspeak3 server instance running under Ubuntu 
 
 ### Run base setup
 
-0. remove existing ssh keys of you machines into your known hosts (only run this if you have rebuilt your machines and the ssh key has changed):
+0. remove existing ssh keys of you machines into your known hosts (**only run this if you have rebuilt your machines and the ssh key has changed**):
 
     For each relevant node run:
 
