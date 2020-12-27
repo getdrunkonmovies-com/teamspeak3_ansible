@@ -12,6 +12,7 @@ Ansible Playbook(s) to manage a teamspeak3 server instance running under Ubuntu 
 
 1. Go to `inventories/teamspeak3/hosts.yml` and adjust the ips of the host according to your requirements.
 2. Put your root ssh key under `ssh_keys/root_rsa`.
+3. Install ansible. Tested with 2.8.5: `pip3 install ansible==3.8.5`
 
 ### Install requiements
 
