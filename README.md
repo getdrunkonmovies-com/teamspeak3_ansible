@@ -15,7 +15,7 @@ Ansible Playbook(s) to manage a teamspeak3 server instance running under Ubuntu 
 
 ### Install requiements
 
-0. Install ansible. Tested with 2.8.5: `pip3 install ansible==2.8.5`
+0. Install ansible. Tested with 2.8.5: `pip3 install --user ansible==2.8.5`
 1. Run `ansible-galaxy install -r requirements.yml` to install all required roles.
 
 ### Run base setup
